@@ -1,0 +1,504 @@
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+.logo {
+  height: 6em;
+  padding: 1.5em;
+  will-change: filter;
+  transition: filter 300ms;
+}
+.logo:hover {
+  filter: drop-shadow(0 0 2em #646cffaa);
+}
+.logo.react:hover {
+  filter: drop-shadow(0 0 2em #61dafbaa);
+}
+
+@keyframes logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  a:nth-of-type(2) .logo {
+    animation: logo-spin infinite 20s linear;
+  }
+}
+
+.card {
+  padding: 2em;
+}
+
+.read-the-docs {
+  color: #888;
+}
+
+:root {
+  --primary-color: #8465FF;
+  --positive-color: #2ECC71;
+  --negative-color: #FF5252;
+  --bg-color: #FFFFFF;
+  --text-color: #333333;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Arial', sans-serif;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  line-height: 1.6;
+}
+
+.app {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+/* 제목 스타일 */
+h1 {
+  text-align: center;
+  margin-bottom: 2rem;
+  font-size: 1.8rem;
+}
+
+/* 잔액 컨테이너 스타일 */
+.balance-container {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.balance-box {
+  flex: 1;
+  background-color: white;
+  padding: 1.5rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.total-balance {
+  flex: 2;
+}
+
+.balance-details {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+}
+
+.balance-item {
+  flex: 1;
+  text-align: center;
+}
+
+.balance-divider {
+  width: 1px;
+  height: 40px;
+  background-color: #E0E0E0;
+  margin: 0 1rem;
+}
+
+.balance-amount {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-top: 0.5rem;
+}
+
+/* 거래 입력 폼 스타일 */
+.transaction-form {
+  background-color: white;
+  padding: 1.5rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  margin-bottom: 2rem;
+}
+
+.form-title {
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+}
+
+.form-group {
+  margin-bottom: 1rem;
+}
+
+input[type="text"],
+input[type="number"] {
+  width: 100%;
+  padding: 0.8rem;
+  border: 1px solid #E0E0E0;
+  border-radius: 4px;
+  font-size: 1rem;
+}
+
+.radio-group {
+  display: flex;
+  gap: 2rem;
+  margin: 1rem 0;
+}
+
+.radio-group label {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  cursor: pointer;
+}
+
+button[type="submit"] {
+  width: 100%;
+  padding: 1rem;
+  background-color: var(--primary-color);
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+/* 거래 내역 리스트 스타일 */
+.transaction-list {
+  background-color: white;
+  padding: 1.5rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.transaction {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  border-bottom: 1px solid #E0E0E0;
+}
+
+.transaction:last-child {
+  border-bottom: none;
+}
+
+.transaction-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.description {
+  font-weight: 500;
+}
+
+.date {
+  font-size: 0.9rem;
+  color: #666;
+}
+
+.transaction-amount {
+  font-weight: bold;
+}
+
+.positive {
+  color: var(--positive-color);
+}
+
+.negative {
+  color: var(--negative-color);
+}
+
+.delete-btn {
+  background-color: #FF5252;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  padding: 0.4rem 0.8rem;
+  margin-left: 1rem;
+  cursor: pointer;
+}
+
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal {
+  background-color: white;
+  padding: 2rem;
+  border-radius: 10px;
+  text-align: center;
+  min-width: 300px;
+}
+
+.modal-buttons {
+  margin-top: 1.5rem;
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+}
+
+.confirm-btn {
+  background-color: var(--negative-color);
+}
+
+.cancel-btn {
+  background-color: #95a5a6;
+}
+
+.no-transactions {
+  text-align: center;
+  color: #666;
+  padding: 2rem;
+}
+
+@media (max-width: 768px) {
+  .app {
+    padding: 1rem;
+  }
+  
+  .balance-summary {
+    flex-direction: column;
+    gap: 1rem;
+  }
+  
+  .transaction {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  .transaction-amount {
+    margin-top: 0.5rem;
+    align-self: flex-end;
+  }
+}
+
+/* 태블릿 (768px ~ 1024px) */
+@media screen and (max-width: 1024px) {
+  .app {
+    padding: 1.5rem;
+    max-width: 95%;
+  }
+
+  .balance-container {
+    flex-direction: column;
+  }
+
+  .balance-box {
+    width: 100%;
+  }
+
+  .total-balance {
+    margin-bottom: 1rem;
+  }
+
+  .transaction {
+    padding: 0.8rem;
+  }
+
+  .balance-amount {
+    font-size: 1.3rem;
+  }
+}
+
+/* 모바일 (768px 이하) */
+@media screen and (max-width: 768px) {
+  .app {
+    padding: 1rem;
+    max-width: 100%;
+  }
+
+  h1 {
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .balance-container {
+    gap: 0.8rem;
+  }
+
+  .balance-box {
+    padding: 1rem;
+  }
+
+  .balance-amount {
+    font-size: 1.2rem;
+  }
+
+  .transaction-form {
+    padding: 1rem;
+  }
+
+  .form-title {
+    font-size: 1.1rem;
+  }
+
+  input[type="text"],
+  input[type="number"] {
+    padding: 0.6rem;
+  }
+
+  .radio-group {
+    gap: 1rem;
+    flex-direction: column;
+  }
+
+  .radio-group label {
+    padding: 0.5rem 0;
+  }
+
+  button[type="submit"] {
+    padding: 0.8rem;
+  }
+
+  .transaction-list {
+    padding: 1rem;
+  }
+
+  .transaction {
+    flex-direction: column;
+    gap: 0.5rem;
+    align-items: flex-start;
+  }
+
+  .transaction-amount {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .delete-btn {
+    padding: 0.3rem 0.6rem;
+    font-size: 0.9rem;
+  }
+
+  /* 모달 스타일 조정 */
+  .modal {
+    width: 90%;
+    padding: 1.5rem;
+  }
+
+  .modal-buttons {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .modal-buttons button {
+    width: 100%;
+  }
+
+  .balance-details {
+    padding: 0.5rem;
+  }
+  
+  .balance-divider {
+    height: 30px;
+  }
+}
+
+/* 작은 모바일 화면 (480px 이하) */
+@media screen and (max-width: 480px) {
+  h1 {
+    font-size: 1.3rem;
+  }
+
+  .balance-amount {
+    font-size: 1.1rem;
+  }
+
+  .form-group {
+    margin-bottom: 0.8rem;
+  }
+
+  input[type="text"],
+  input[type="number"] {
+    font-size: 0.9rem;
+  }
+
+  .transaction {
+    padding: 0.6rem;
+  }
+
+  .description {
+    font-size: 0.9rem;
+  }
+
+  .date {
+    font-size: 0.8rem;
+  }
+}
+
+/* 큰 화면 (1440px 이상) */
+@media screen and (min-width: 1440px) {
+  .app {
+    max-width: 1200px;
+  }
+
+  .balance-container {
+    gap: 2rem;
+  }
+
+  .balance-amount {
+    font-size: 1.8rem;
+  }
+
+  .transaction-form,
+  .transaction-list {
+    padding: 2rem;
+  }
+}
+
+/* 다크 모드 지원 */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg-color: #1a1a1a;
+    --text-color: #ffffff;
+  }
+
+  body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+  }
+
+  .balance-box,
+  .transaction-form,
+  .transaction-list {
+    background-color: #2d2d2d;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  }
+
+  input[type="text"],
+  input[type="number"] {
+    background-color: #3d3d3d;
+    border-color: #4d4d4d;
+    color: white;
+  }
+
+  .transaction {
+    border-bottom-color: #3d3d3d;
+  }
+
+  .date {
+    color: #999;
+  }
+
+  .balance-divider {
+    background-color: #4d4d4d;
+  }
+}
