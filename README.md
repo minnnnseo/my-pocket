@@ -1,54 +1,42 @@
-# React + TypeScript + Vite
+## 개요
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+사용자가 수입과 지출을 기록하고 잔액을 관리할 수 있는 웹 애플리케이션으로, 
 
-Currently, two official plugins are available:
+모든 데이터는 브라우저의 로컬 스토리지에 저장됩니다.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+React의 기본 개념, 상태 관리, 로컬 저장소 활용 능력을 평가하기 위한 것입니다. 
 
-## Expanding the ESLint configuration
+디자인의 정확한 구현보다 기능적 요구사항을 충족하는 데 중점
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## 기술 스택
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+- React
+- CSS (또는 bootstrap, Tailwind CSS)
+- LocalStorage API
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## 핵심 기능 요구사항
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+### 1. 잔액 표시
 
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
-```
+- 현재 잔액을 상단에 표시
+- 수입 금액 합계 표시
+- 지출 금액 합계 표시
+
+### 2. 거래 입력 기능
+
+- 텍스트 입력 필드: 거래 내역 설명 입력
+- 금액 입력 필드: 거래 금액 입력
+- 거래 유형 선택: 수입/지출 구분
+- '거래 추가' 버튼: 새 거래를 등록
+
+### 3. 거래 내역 표시
+
+- 각 거래 항목에 대해 다음 정보 표시:
+    - 금액 (수입은 녹색 '+', 지출은 빨간색 '-'로 표시)
+- 스크롤 가능한 거래 내역 목록
+- 거래 삭제 기능 (정말 삭제? 확인 기능 modal)
+
+### 4. 데이터 저장
+
+- 모든 거래 데이터는 LocalStorage에 저장
+- 페이지 새로고침 후에도 데이터 유지
